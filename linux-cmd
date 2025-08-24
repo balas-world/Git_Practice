@@ -1,0 +1,5 @@
+
+
+
+#to install network tools
+apt install net-tools
