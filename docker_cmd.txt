@@ -10,3 +10,23 @@ docker network inspect bridge
 #to check the available img in local
 docker image ls 
 
+docker pull img-name
+docker image ls
+docker ps 
+to log into the container
+docker exec -it (container id) /bin/bash
+docker exec container-id cmd-need-to-exe
+
+docker log id
+to show only the container id
+docker ps -aq
+to delete all the ps 
+docker rm -f 'docker ps -aq'
+to cchek the free memory
+free -m 
+
+docker run -d -P (img-name)
+to change the container name
+docker run -d -P --name (name) (img-name)
+to run a container id we run this cmd the container will be in exited state 
+docker run -d name
