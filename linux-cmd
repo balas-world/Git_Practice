@@ -1,5 +1,12 @@
 
 
-
+-----network-------
 #to install network tools
 apt install net-tools
+
+--------General-----
+dh -h /
+free -m
+to download a file
+wget (link)
+
