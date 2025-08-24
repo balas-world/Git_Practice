@@ -1,6 +1,12 @@
 
 docker pull ubuntu:latest
 docker run -it ubuntu
+to loginto docker 
+docker login   /    docker login -u username (after that it will ask for password)
+to push image to docker 
+docker tag docker.io/babybala69/general:name
+docker push path(babybala69/general..)
+docker commit -m "name" old-img-id name (eg:bala:v1, acb.1.2.3, etc ....)
 
 
 
@@ -30,3 +36,29 @@ to change the container name
 docker run -d -P --name (name) (img-name)
 to run a container id we run this cmd the container will be in exited state 
 docker run -d name
+
+
+
+
+automate dockerfile
+###
+FROM tomcate
+RUN ls ; apt update
+RUN pws
+RUN echo "hello"
+COPY (src file on vm) (dest on docker )
+COPY path /opt/...
+ENV JAVA_HOME=/opt/...
+ENV JAVA_VERSION="1.00"
+EXPOSE 8080
+to run a service
+CMD ["/opt/..."]
+mandatoru cmd to run a service
+CMD ["path ", "run"]
+
+
+###
+docker build --file (name of the file) --tag mytag (path or . for current folder)
+docker image rm name:tag
+to remove the stoped container
+docker system prune -a
