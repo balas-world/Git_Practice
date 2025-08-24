@@ -7,3 +7,6 @@ docker run -it ubuntu
 docker network ls
 docker network inspect bridge
  
+#to check the available img in local
+docker image ls 
+
