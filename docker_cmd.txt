@@ -30,7 +30,8 @@ to delete all the ps
 docker rm -f 'docker ps -aq'
 to cchek the free memory
 free -m 
-
+to take cmd access of the container
+docker run -it container id
 docker run -d -P (img-name)
 to change the container name
 docker run -d -P --name (name) (img-name)
