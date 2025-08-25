@@ -1,0 +1,1 @@
+wsl --list --verbose to list the installed os 
