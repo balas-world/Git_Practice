@@ -63,3 +63,23 @@ docker build --file (name of the file) --tag mytag (path or . for current folder
 docker image rm name:tag
 to remove the stoped container
 docker system prune -a
+
+
+-----------
+Volume
+-----------
+docker log con id
+docker volume ls
+docker volume create name
+docker volume inspect name od container
+
+to mount a volume to container
+docker run -d -P --mount type=volume,src=(name od the volume),target=(path in side container)/opt/tocat/logs (image name)
+or
+docker run -d -P --volume (name od the volume):(path in side container)/opt/tocat/logs -v(name od the volume):(path in side container)/opt/tocat/logs (image name)
+to save a user defined path
+docker run -d -P --mount type=bind,src=(path ware we need to save the logs),target=(path in side container)/opt/tocat/logs (image name)
+to save a log in different file
+docker run -d -P --mount type=bind,src=(path ware we need to save the logs),target=(path in side container)/opt/tocat/logs --mount type=bind,src=(path ware we need to save the logs),target=(path in side container)/opt/tocat/logs--mount type=bind,src=(path ware we need to save the logs),target=(path in side container)/opt/tocat/logs (image name)
+
+docker inspect container-id | grep volume
