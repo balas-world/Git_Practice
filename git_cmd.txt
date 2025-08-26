@@ -8,3 +8,5 @@ git switch main
 
 prob:  Need to specify how to reconcile divergent branches
 soln:   git config pull.rebase false
+copy the url which is in error and paste it in browser
+https://github.com/balas-world/Git_Practice/security/secret-scanning/unblock-secret/31oYP9LVsYa2hAeK1YHiJWBNMOz
