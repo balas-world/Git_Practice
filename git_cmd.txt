@@ -5,6 +5,9 @@ git branch
 git switch main
 
 
+---------------------------------------------------------
+solutions
+---------------------------------------------------------
 
 prob:  Need to specify how to reconcile divergent branches
 soln:   git config pull.rebase false
