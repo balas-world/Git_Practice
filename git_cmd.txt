@@ -5,3 +5,7 @@ git rebase
 git branch
 git switch main
 
+
+
+prob:  Need to specify how to reconcile divergent branches
+soln:   git config pull.rebase false
