@@ -26,7 +26,18 @@ sudo bash /tmp/installK8S.sh
 ## Initialize kubernetes Master Node
  
    sudo kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all
-
+##if it gives error
+sudo swapoff -a
+sudo sed -i '/ swap / s/^/#/' /etc/fstab
+sudo systemctl restart containerd
+sudo systemctl enable containerd
+sudo systemctl restart docker
+sudo systemctl enable docker
+docker info
+# or
+ctr version
+sudo systemctl status kubelet
+sudo systemctl start kubelet
    sudo mkdir -p $HOME/.kube
    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
    sudo chown $(id -u):$(id -g) $HOME/.kube/config
