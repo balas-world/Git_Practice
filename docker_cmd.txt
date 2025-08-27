@@ -19,6 +19,8 @@ docker image ls
 docker pull img-name
 docker image ls
 docker ps 
+to remove the container 
+docker rm -f `docker ps -qa`
 to log into the container
 docker exec -it (container id) /bin/bash
 docker exec container-id cmd-need-to-exe
