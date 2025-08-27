@@ -85,3 +85,16 @@ to save a log in different file
 docker run -d -P --mount type=bind,src=(path ware we need to save the logs),target=(path in side container)/opt/tocat/logs --mount type=bind,src=(path ware we need to save the logs),target=(path in side container)/opt/tocat/logs--mount type=bind,src=(path ware we need to save the logs),target=(path in side container)/opt/tocat/logs (image name)
 
 docker inspect container-id | grep volume
+
+
+
+------------------
+Network
+------------------
+docker nerwork ls
+docker network inspect bridge
+docker inspect (name of the container)
+docker exec (name of the container) cmd (eg ping)
+docker  network disconnect (name of the network) (name of the container)
+docker run -d --network (name of the network) (name of the container or id )
+
