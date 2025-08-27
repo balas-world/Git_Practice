@@ -4,3 +4,43 @@
 
 kubectl get nodes
 
+
+
+kubectl get nodes
+kubectl run bala-app --image=tomcat:latest
+kubectl run bala-app --image=tomcat:latest --namespace (name)
+ 
+kubectl run bala-db --image=mango:latest
+kubectl get pods --output wide or kubectl get pods -o wide
+kubectl get pods -o wide --all-namespaces
+kubectl get pods --output wide or kubectl get pods -o wide --namespace (names)
+
+kubectl delete pod (pod name)
+kubectl create
+kubectl describe 
+kubectl logs
+kubectl exec -it (pod name) -- /bin/bash
+kubectl create namespace (name)  ==to create a name space or isolated resource
+kubectl api-resources
+
+
+
+---------
+#Kubernetes manifest file
+kind:Pod
+apiVersion:v1
+metadata:
+	name:pod1
+	namespace:bala
+	lable:
+		app:myapp
+		project:demo
+		env:dev
+	spec:
+		container:
+		- name: cont1
+		  image: tomcat
+
+-----------
+kubectl apply --filename (name).yaml
+
