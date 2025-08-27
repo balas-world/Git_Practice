@@ -97,4 +97,34 @@ docker inspect (name of the container)
 docker exec (name of the container) cmd (eg ping)
 docker  network disconnect (name of the network) (name of the container)
 docker run -d --network (name of the network) (name of the container or id )
+-------------
+Docker compose
+-------------
+script
 
+###########
+services:
+	balaapp:
+		image: (name of the img from docker)
+		deploy:
+			replices:3
+		ports:
+			- 80 #http
+		volumes:
+			- (from path):(to path)
+			- (same format to attach number of volumes)
+		networks:
+			- bridge 
+
+(to create a network )
+networks:
+	balasnetwork: 
+
+
+
+
+
+to run a docker compose
+docker compose --file (name of the file.yaml ) up -d
+docker compose --file (name of the file.yaml ) up scale (name of the container)=(number of container i want) -d
+docker compose --file (name of the file .yaml ) down
