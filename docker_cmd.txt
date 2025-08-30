@@ -7,7 +7,7 @@ to push image to docker
 docker tag docker.io/babybala69/general:name
 docker push path(babybala69/general..)
 docker commit -m "name" old-img-id name (eg:bala:v1, acb.1.2.3, etc ....)
-
+docker rmi (name of the ima:tag)
 
 
 docker network ls
