@@ -1,6 +1,6 @@
 ## Install Docker
 sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/scripts/installDocker.sh -P /tmp
-sudo chmod 755 /tmp/installDocker.sh
+sudo chmod 755 /tmp/installDocker.sh -y
 sudo bash /tmp/installDocker.sh
 sudo systemctl restart docker.service
 
@@ -29,7 +29,7 @@ sudo bash /tmp/installK8S.sh
 ##if it gives error
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
-sudo systemctl restart containerd
+sudo systemctl restart containerd 
 sudo systemctl enable containerd
 sudo systemctl restart docker
 sudo systemctl enable docker
