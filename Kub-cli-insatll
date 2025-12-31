@@ -39,3 +39,4 @@ kubeadm token create --print-join-command
            ensure to add sudo 
            then run on worker nodes
 
+sudo kubeadm join 10.17.59.243:6443 --token tf961u.qisetynwda6l358v --discovery-token-ca-cert-hash sha256:90249ecb24ed38d87e62978690983add31d540ebdee2c1dd2e749029c85695d2  --cri-socket unix:///var/run/cri-dockerd.sock
