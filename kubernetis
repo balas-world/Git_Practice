@@ -49,3 +49,8 @@ sudo systemctl start kubelet
    kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/calico.yaml
 
    # Validate:  kubectl get nodes
+
+
+kubeadm join 10.17.59.243:6443 --token fm4zs3.n8n59u5235rf5onf \
+	--discovery-token-ca-cert-hash sha256:90249ecb24ed38d87e62978690983add31d540ebdee2c1dd2e749029c85695d2
+
