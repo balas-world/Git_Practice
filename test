@@ -1,49 +1,53 @@
-# Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+## Install Docker
+sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/scripts/installDocker.sh -P /tmp
+sudo chmod 755 /tmp/installDocker.sh -y
+sudo bash /tmp/installDocker.sh
+sudo systemctl restart docker.service
 
-# Add the repository to Apt sources:
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+## Install CRI-Docker
+sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/scripts/installCRIDockerd.sh -P /tmp
+sudo chmod 755 /tmp/installCRIDockerd.sh
+sudo bash /tmp/installCRIDockerd.sh
+sudo systemctl restart cri-docker.service
 
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+## Install kubeadm,kubelet,kubectl
+sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/scripts/installK8S.sh -P /tmp
+sudo chmod 755 /tmp/installK8S.sh
+sudo bash /tmp/installK8S.sh
 
-###############################################
+# Validate 
 
-# Update the apt package index and install packages necessary to use the Kubernetes apt repository
-sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl gpg
-
-# Download the public signing key for the Kubernetes package repositories
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-
-# Add the appropriate Kubernetes apt repository
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.31/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-
-# Install the components
-sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectl
-
-# Prevent automatic updates to these packages to avoid cluster breaking
-sudo apt-mark hold kubelet kubeadm kubectl
-
-###############################################
+   docker -v
+   cri-dockerd --version
+   kubeadm version -o short
+   kubelet --version
+   kubectl version --client
 
 sudo swapoff -a
-sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+sudo sed -i '/ swap / s/^/#/' /etc/fstab
+sudo systemctl restart containerd 
+sudo systemctl enable containerd
+sudo systemctl restart docker
+sudo systemctl enable docker
 
-###################
+## Initialize kubernetes Master Node
+ 
+   sudo kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all
+##if it gives error
 
-sudo mkdir -p /etc/containerd
-containerd config default | sudo tee /etc/containerd/config.toml >/dev/null
-sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
-sudo systemctl restart containerd
 
+docker info
+# or
+ctr version
+sudo systemctl status kubelet
+sudo systemctl start kubelet
+   sudo mkdir -p $HOME/.kube
+   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+   ## install networking driver -- Weave/flannel/canal/calico etc... 
+
+   ## below installs calico networking driver 
+    
+   kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/calico.yaml
 
