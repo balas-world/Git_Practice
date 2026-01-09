@@ -23,9 +23,6 @@ sudo bash /tmp/installK8S.sh
    kubelet --version
    kubectl version --client
 
-## Initialize kubernetes Master Node
- 
-   sudo kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all
 ##if it gives error
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
@@ -33,7 +30,15 @@ sudo systemctl restart containerd
 sudo systemctl enable containerd
 sudo systemctl restart docker
 sudo systemctl enable docker
+
+
 docker info
+## Initialize kubernetes Master Node
+ 
+   sudo kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all
+
+
+
 # or
 ctr version
 sudo systemctl status kubelet
