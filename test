@@ -1,3 +1,2 @@
-
-kubeadm join 10.232.163.225:6443 --token 5t37wd.6g73352oscb7opro \
-	--discovery-token-ca-cert-hash sha256:ef105f95c54904b14af463ec8d6e5d3a1fc40039042abb7aa3c32aeb4028f590 
+kubeadm join 10.232.163.5:6443 --token klohr0.arlng3pvsb1c1je6 \
+	--discovery-token-ca-cert-hash sha256:e7cf4a374699fe7acbbad220dcf919f61b5248653ee3a4e019a0cad3e9491518
