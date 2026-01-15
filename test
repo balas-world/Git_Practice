@@ -1,2 +1,2 @@
-kubeadm join 10.232.163.5:6443 --token qo6ps3.jsff8ug7802c8qsp \
-	--discovery-token-ca-cert-hash sha256:5ef5569bcc31b14a60c938de302fb91726dac2f3f5aacbf4b22259055dba6e79   --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all
+kubeadm join 10.112.138.5:6443 --token 9srljw.cfl21mexhuzcfl6f \
+	--discovery-token-ca-cert-hash sha256:0f7a1c250c2b1ded0fe0f2e733fa22cf2e6373067feeb746acb5dad81e8f03e6 
