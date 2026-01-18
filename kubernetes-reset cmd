@@ -1,7 +1,17 @@
-sudo kubeadm reset -f --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all 
-
-sudo rm -rf ~/.kube
-sudo rm -rf /etc/kubernetes/
-sudo rm -rf /etc/cni/net.d
-sudo rm -rf /var/lib/cni/
-sudo iptables -F && sudo iptables -t nat -F && sudo iptables -t mangle -F && sudo iptables -X
+sudo kubeadm reset -f --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all
+    sudo systemctl stop kubelet
+    sudo systemctl stop containerd   # or docker
+    sudo rm -rf /etc/kubernetes
+    sudo rm -rf /var/lib/kubelet
+    sudo rm -rf /var/lib/etcd
+    sudo rm -rf ~/.kube
+    sudo rm -rf /etc/cni
+    sudo rm -rf /opt/cni
+   sudo rm -rf /var/lib/cni
+    sudo iptables -F
+    sudo iptables -t nat -F
+    sudo iptables -t mangle -F
+    sudo iptables -X
+  sudo iptables-nft -F
+   sudo iptables-nft -t nat -F
+   sudo ipvsadm --clear
