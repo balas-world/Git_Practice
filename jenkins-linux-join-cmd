@@ -1,1 +1,1 @@
-curl -sO http://localhost:1234/jnlpJars/agent.jar;java -jar agent.jar -url http://localhost:1234/ -secret e6bc7db423b9a5f387bc73b32db6bf128b6f3bb0c982d7f33ab732ad34355067 -name "Ubu-Node" -webSocket -workDir "/home/jenkins"
+curl -sO http://192.168.56.1:1234/jnlpJars/agent.jar;java -jar agent.jar -url http://192.168.56.1:1234/ -secret e6bc7db423b9a5f387bc73b32db6bf128b6f3bb0c982d7f33ab732ad34355067 -name "Ubu-Node" -webSocket -workDir "/home/jenkins"
