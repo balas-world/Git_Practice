@@ -1,0 +1,1 @@
+curl.exe -sO http://localhost:1234/jnlpJars/agent.jar & java -jar agent.jar -url http://localhost:1234/ -secret e33a78444d815fe66ea44a60af72713b0c0c2f88098cf110508a343417dcf19d -name "Win-Node" -webSocket -workDir "C:/jenkins"
