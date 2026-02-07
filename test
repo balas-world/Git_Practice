@@ -1,5 +1,5 @@
-kubeadm join master:6443 --token iur0i0.k258inrot1wg3ia1 \
-	--discovery-token-ca-cert-hash sha256:d0e4e3c89dca9598f49905b29a5d830cb0388b4993e623518ce469b9dc1ddec7  --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all
+kubeadm join master:6443 --token qqje8f.4dfanjuqj2qjfg7b --discovery-token-ca-cert-hash sha256:d0e4e3c89dca9598f49905b29a5d830cb0388b4993e623518ce469b9dc1ddec7 
+  --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all
 jp6lxw.3zc48uawjke4n8w7
 
 
